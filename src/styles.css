@@ -1,0 +1,133 @@
+/* Landing Page Styles */
+.landing-page {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  }
+  
+  .hero-section {
+    background: linear-gradient(135deg, #0d6efd 0%, #0a4275 100%);
+    padding: 6rem 0;
+    position: relative;
+  }
+  
+  .wave-divider {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    overflow: hidden;
+    line-height: 0;
+    transform: rotate(180deg);
+  }
+  
+  .wave-divider svg {
+    position: relative;
+    display: block;
+    width: calc(100% + 1.3px);
+    height: 100px;
+  }
+  
+  .feature-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border: 1px solid rgba(0,0,0,0.05);
+  }
+  
+  .feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+  }
+  
+  .trusted-logo {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+  }
+  
+  .trusted-logo:hover {
+    opacity: 1;
+  }
+  
+  .cta-section {
+    background: linear-gradient(135deg, #0a4275 0%, #06284d 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .cta-section::before {
+    content: '';
+    position: absolute;
+    top: -50px;
+    right: -50px;
+    width: 200px;
+    height: 200px;
+    background: rgba(255,255,255,0.1);
+    border-radius: 50%;
+  }
+  
+  .cta-section::after {
+    content: '';
+    position: absolute;
+    bottom: -80px;
+    left: -80px;
+    width: 300px;
+    height: 300px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 50%;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-section {
+      padding: 4rem 0;
+    }
+    
+    .display-3 {
+      font-size: 2.5rem;
+    }
+  }
+
+
+  /* Logo Carousel Styles */
+.logo-carousel-wrapper {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+  }
+  
+  .logo-carousel {
+    display: flex;
+    width: calc(150px * 16); /* Double the items for seamless loop */
+    animation: slide 20s linear infinite;
+  }
+  
+  .logo-slide {
+    width: 150px;
+    height: 60px;
+    margin: 0 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .logo-slide img {
+    transition: all 0.3s ease;
+  }
+  
+  .logo-slide img:hover {
+    filter: grayscale(0%) !important;
+    opacity: 1 !important;
+  }
+  
+  @keyframes slide {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(calc(-150px * 8)); /* Move by half the width */
+    }
+  }
+  
+  /* Pause animation on hover */
+  .logo-carousel-wrapper:hover .logo-carousel {
+    animation-play-state: paused;
+  }
