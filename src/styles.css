@@ -131,3 +131,95 @@
   .logo-carousel-wrapper:hover .logo-carousel {
     animation-play-state: paused;
   }
+
+
+
+  /* Animation styles */
+.logo-carousel-wrapper {
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-carousel {
+  display: flex;
+  animation: scroll 30s linear infinite;
+  width: calc(150px * 14);
+}
+
+.logo-slide {
+  padding: 0 1rem;
+  width: 150px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(calc(-150px * 7)); }
+}
+
+/* Feature card hover effect */
+.feature-card {
+  transition: all 0.3s ease;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.feature-card:hover {
+  border-color: var(--bs-primary);
+}
+
+/* CTA section */
+.cta-section {
+  background: linear-gradient(135deg, #3a7bd5 0%, #00d2ff 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-section::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+  animation: pulse 8s infinite linear;
+}
+
+@keyframes pulse {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Wave divider */
+.wave-divider {
+  position: relative;
+  bottom: -1px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 120px;
+}
+
+/* Testimonial hover effect */
+.testimonial-hover-content {
+  transition: all 0.3s ease;
+}
+
+/* Footer links */
+footer a {
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+footer a:hover {
+  color: white !important;
+}
