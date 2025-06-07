@@ -500,7 +500,7 @@ const Landing = () => {
                 {['twitter', 'linkedin', 'facebook'].map((social, index) => (
                   <motion.a 
                     key={index}
-                    href="/#"
+                    href="#"
                     className="text-white"
                     whileHover={{ y: -3 }}
                   >
@@ -572,7 +572,7 @@ const Landing = () => {
                 {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item, index) => (
                   <motion.a 
                     key={index}
-                    href="/#"
+                    href="#"
                     className="text-white-50 small"
                     whileHover={{ scale: 1.05 }}
                   >
