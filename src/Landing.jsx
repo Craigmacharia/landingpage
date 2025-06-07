@@ -2,6 +2,19 @@ import React, { useState } from "react";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './styles.css';
 import { motion } from 'framer-motion';
+import { 
+  FiEdit
+, 
+  FiClock
+, 
+  FiCheckCircle
+, 
+  FiBarChart2
+, 
+  FiLock
+, 
+  FiUsers 
+} from 'react-icons/fi';
 
 const Landing = () => {
   const [activeAdvantage, setActiveAdvantage] = useState(0);
@@ -153,38 +166,49 @@ const Landing = () => {
             <p className="lead text-muted">Everything you need for effective governance in one platform</p>
           </motion.div>
           
+
+
+
+
           <div className="row g-4">
-            {[
-              {
-                icon: '📝',
-                title: 'Smart Agendas',
-                description: 'Create, manage & share professional agendas with automated templates and collaborative editing.'
-              },
-              {
-                icon: '⏱️',
-                title: 'Real-Time Minutes',
-                description: 'Capture decisions instantly with AI-assisted minute taking and live collaboration tools.'
-              },
-              {
-                icon: '✅',
-                title: 'Action Tracking',
-                description: 'Assign, monitor, and report on action items with automated reminders and progress tracking.'
-              },
-              {
-                icon: '📊',
-                title: 'Analytics & Reporting',
-                description: 'Gain insights with meeting analytics, decision tracking, and performance dashboards.'
-              },
-              {
-                icon: '🔒',
-                title: 'Secure Document Hub',
-                description: 'Centralized, permission-controlled access to all board materials with version control.'
-              },
-              {
-                icon: '🤝',
-                title: 'Stakeholder Engagement',
-                description: 'Facilitate better participation with pre-meeting surveys and feedback tools.'
-              }
+  {[
+    {
+      icon: <FiEdit className="feature-icon" />,
+      title: 'Smart Agendas',
+      description: 'Create, manage & share professional agendas with automated templates and collaborative editing.'
+    },
+    {
+      icon: <FiClock className="feature-icon" />,
+      title: 'Real-Time Minutes',
+      description: 'Capture decisions instantly with AI-assisted minute taking and live collaboration tools.'
+    },
+    {
+      icon: <FiCheckCircle className="feature-icon" />,
+      title: 'Action Tracking',
+      description: 'Assign, monitor, and report on action items with automated reminders and progress tracking.'
+    },
+    {
+      icon: <FiBarChart2 className="feature-icon" />,
+      title: 'Analytics & Reporting',
+      description: 'Gain insights with meeting analytics, decision tracking, and performance dashboards.'
+    },
+    {
+      icon: <FiLock className="feature-icon" />,
+      title: 'Secure Document Hub',
+      description: 'Centralized, permission-controlled access to all board materials with version control.'
+    },
+    {
+      icon: <FiUsers className="feature-icon" />,
+      title: 'Stakeholder Engagement',
+      description: 'Facilitate better participation with pre-meeting surveys and feedback tools.'
+    }
+
+
+
+
+
+
+
             ].map((feature, index) => (
               <motion.div 
                 key={index} 

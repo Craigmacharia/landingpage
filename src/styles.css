@@ -223,3 +223,18 @@ footer a {
 footer a:hover {
   color: white !important;
 }
+
+
+
+
+.feature-icon {
+  font-size: 1.75rem;
+  color: #3a7bd5; /* Primary blue color */
+  margin-bottom: 1rem;
+  transition: all 0.3s ease;
+}
+
+.feature-card:hover .feature-icon {
+  color: #00d2ff; /* Lighter blue on hover */
+  transform: scale(1.1);
+}
