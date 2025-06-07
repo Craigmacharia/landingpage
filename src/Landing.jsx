@@ -559,33 +559,36 @@ const Landing = () => {
                     <a href="/#" className="text-white-50">{item}</a>
                   </motion.li>
                 ))}
-              </ul>
-            </div>
+
+
+
+
+</ul>
           </div>
-          <hr className="my-4" />
-          <div className="row align-items-center">
-            <div className="col-md-6 mb-3 mb-md-0">
-              <p className="mb-0 small">© 2023 Boardify. All rights reserved.</p>
-            </div>
-            <div className="col-md-6 text-md-end">
-              <div className="d-flex gap-3 justify-content-md-end">
-                {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((item, index) => (
-                  <motion.a 
-                    key={index}
-                    href="#"
-                    className="text-white-50 small"
-                    whileHover={{ scale: 1.05 }}
-                  >
-                    {item}
-                  </motion.a>
-                ))}
-              </div>
-            </div>
+
+          <div className="col-lg-2 col-md-4 mb-4 mb-md-0">
+            <h4 className="h5 mb-3">Support</h4>
+            <ul className="list-unstyled">
+              {['Help Center', 'Contact Us', 'Privacy Policy', 'Terms of Service'].map((item, index) => (
+                <motion.li 
+                  key={index}
+                  whileHover={{ x: 5 }}
+                >
+                  <a href="/#" className="text-white-50">{item}</a>
+                </motion.li>
+              ))}
+            </ul>
           </div>
         </div>
-      </footer>
-    </div>
+
+        <div className="text-center mt-4">
+          <p className="mb-0 text-white-50">&copy; {new Date().getFullYear()} Boardify. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+  </div>
   );
 };
 
 export default Landing;
+
