@@ -89,7 +89,7 @@ const Landing = () => {
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                src="https://bing.com/th/id/BCO.21447cfe-12ec-4076-ba51-389a86ba6657.png" 
+                src="https://bing.com/th/id/BCO.1364d8f8-cdf2-46ea-936b-f3dcb8f3bd4c.png" 
                 alt="Boardify Dashboard" 
                 className="img-fluid rounded shadow-lg" 
               />
