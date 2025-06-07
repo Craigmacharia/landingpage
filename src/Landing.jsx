@@ -13,29 +13,35 @@ import {
 , 
   FiLock
 , 
-  FiUsers 
+  FiUsers ,
+
+  FiChevronDown
+,
+FiX
 } from 'react-icons/fi';
+
 
 const Landing = () => {
   const [activeAdvantage, setActiveAdvantage] = useState(0);
   const [testimonialHover, setTestimonialHover] = useState(false);
+  const [showLoginForm, setShowLoginForm] = useState(false);
+  const [loginData, setLoginData] = useState({ email: '', password: '' });
+
+  const handleLoginChange = (e) => {
+    const { name, value } = e.target;
+    setLoginData(prev => ({ ...prev, [name]: value }));
+  };
 
   const advantages = [
     {
       title: "Time Efficiency",
-      content: "Reduce meeting preparation time by up to 60% with automated agenda creation and document organization."
+      content: "Reduce meeting preparation time by up to 60% with automated agenda creation and document organization.",
+      image: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
     },
     {
       title: "Improved Governance",
-      content: "Enhance board effectiveness with structured meeting processes and clear decision tracking."
-    },
-    {
-      title: "Enhanced Collaboration",
-      content: "Facilitate better communication between board members with real-time editing and commenting tools."
-    },
-    {
-      title: "Risk Mitigation",
-      content: "Maintain compliance with complete audit trails and secure document handling."
+      content: "Enhance board effectiveness with structured meeting processes and clear decision tracking.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
     }
   ];
 
@@ -60,7 +66,7 @@ const Landing = () => {
                 initial="hidden"
                 animate="visible"
                 variants={slideUp}
-                className="display-3 fw-bold mb-4"
+                className="display-4 fw-bold mb-4" // Changed from display-3 to display-4
               >
                 Boardify
               </motion.h1>
@@ -69,7 +75,7 @@ const Landing = () => {
                 animate="visible"
                 variants={slideUp}
                 transition={{ delay: 0.2 }}
-                className="lead fs-4 mb-4"
+                className="lead fs-5 mb-4" // Changed from fs-4 to fs-5
               >
                 Transform your board meetings with intelligent agenda management, real-time collaboration, and actionable insights.
               </motion.p>
@@ -78,9 +84,58 @@ const Landing = () => {
                 animate="visible"
                 variants={slideUp}
                 transition={{ delay: 0.4 }}
-                className="d-flex gap-3"
+                className="d-flex gap-3 position-relative"
               >
-                <a href="#signup" className="btn btn-light btn-lg px-4 py-2 rounded-pill fw-bold">Get Started</a>
+                <button 
+                  className="btn btn-light btn-lg px-4 py-2 rounded-pill fw-bold d-flex align-items-center"
+                  onClick={() => setShowLoginForm(!showLoginForm)}
+                >
+                  Get Started 
+<FiChevronDown className="ms-2" />
+                </button>
+                
+                {showLoginForm && (
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="login-form-container p-4 bg-white rounded shadow-lg"
+                  >
+                    <button 
+                      className="btn-close position-absolute top-0 end-0 m-2" 
+                      onClick={() => setShowLoginForm(false)}
+                    />
+                    <h5 className="mb-3 text-dark">Sign In</h5>
+                    <form>
+                      <div className="mb-3">
+                        <input
+                          type="email"
+                          name="email"
+                          placeholder="Email"
+                          className="form-control"
+                          value={loginData.email}
+                          onChange={handleLoginChange}
+                        />
+                      </div>
+                      <div className="mb-3">
+                        <input
+                          type="password"
+                          name="password"
+                          placeholder="Password"
+                          className="form-control"
+                          value={loginData.password}
+                          onChange={handleLoginChange}
+                        />
+                      </div>
+                      <button type="submit" className="btn btn-primary w-100">
+                        Login
+                      </button>
+                      <div className="text-center mt-2">
+                        <a href="#forgot" className="small text-muted">Forgot password?</a>
+                      </div>
+                    </form>
+                  </motion.div>
+                )}
+                
                 <a href="#demo" className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">Live Demo</a>
               </motion.div>
             </div>
@@ -95,13 +150,6 @@ const Landing = () => {
               />
             </div>
           </div>
-        </div>
-        <div className="wave-divider">
-          <svg viewBox="0 0 1200 120" preserveAspectRatio="none">
-            <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" fill="#fff"></path>
-            <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" fill="#fff"></path>
-            <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" fill="#fff"></path>
-          </svg>
         </div>
       </section>
 
@@ -233,7 +281,15 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Advantages Section */}
+
+
+
+
+
+            
+{/* Rest of your sections remain the same until Advantages Section */}
+
+      {/* Advantages Section - Updated with Image Cards */}
       <section className="py-5 bg-light">
         <div className="container">
           <motion.div 
@@ -247,37 +303,45 @@ const Landing = () => {
             <p className="lead text-muted">Discover the advantages of modern board management</p>
           </motion.div>
           
-          <div className="row">
-            <div className="col-lg-6">
-              <div className="d-flex flex-wrap gap-2 mb-4">
-                {advantages.map((advantage, index) => (
-                  <motion.button
-                    key={index}
-                    onClick={() => setActiveAdvantage(index)}
-                    className={`btn ${activeAdvantage === index ? 'btn-primary' : 'btn-outline-primary'}`}
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                  >
-                    {advantage.title}
-                  </motion.button>
-                ))}
+          <div className="row g-4">
+            {advantages.map((advantage, index) => (
+              <div key={index} className="col-md-6">
+                <motion.div 
+                  className="advantage-card h-100 rounded overflow-hidden shadow-sm position-relative"
+                  initial="hidden"
+                  whileInView="visible"
+                  variants={slideUp}
+                  viewport={{ once: true }}
+                  whileHover={{ boxShadow: "0 10px 25px rgba(0,0,0,0.1)" }}
+                >
+                  <img 
+                    src={advantage.image} 
+                    alt={advantage.title}
+                    className="img-fluid w-100 h-100 object-cover"
+                  />
+                  <div className="advantage-content position-absolute bottom-0 start-0 w-100 p-4 bg-white">
+                    <h3 className="h4 fw-bold">{advantage.title}</h3>
+                    <motion.p 
+                      className="mb-0"
+                      initial={{ opacity: 0, height: 0 }}
+                      whileHover={{ opacity: 1, height: 'auto' }}
+                      transition={{ duration: 0.3 }}
+                    >
+                      {advantage.content}
+                    </motion.p>
+                  </div>
+                </motion.div>
               </div>
-            </div>
-            <div className="col-lg-6">
-              <motion.div 
-                key={activeAdvantage}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ duration: 0.5 }}
-                className="advantage-content p-4 bg-white rounded shadow-sm"
-              >
-                <h3 className="h4">{advantages[activeAdvantage].title}</h3>
-                <p>{advantages[activeAdvantage].content}</p>
-              </motion.div>
-            </div>
+            ))}
           </div>
         </div>
       </section>
+
+
+
+
+
+
 
       {/* Transformation Section */}
       <section className="py-5">
@@ -423,55 +487,7 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="signup" className="py-5 text-white cta-section">
-        <div className="container text-center py-4">
-          <motion.h2 
-            initial="hidden"
-            whileInView="visible"
-            variants={slideUp}
-            viewport={{ once: true }}
-            className="display-5 fw-bold mb-3"
-          >
-            Ready to Transform Your Board Meetings?
-          </motion.h2>
-          <motion.p 
-            initial="hidden"
-            whileInView="visible"
-            variants={slideUp}
-            viewport={{ once: true }}
-            transition={{ delay: 0.2 }}
-            className="lead mb-4"
-          >
-            Join hundreds of organizations that trust Boardify for their governance needs.
-          </motion.p>
-          <motion.div 
-            className="d-flex justify-content-center gap-3"
-            initial="hidden"
-            whileInView="visible"
-            variants={slideUp}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-          >
-            <motion.a 
-              href="#pricing" 
-              className="btn btn-light btn-lg px-4 py-2 rounded-pill fw-bold"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View Plans
-            </motion.a>
-            <motion.a 
-              href="#contact" 
-              className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contact Sales
-            </motion.a>
-          </motion.div>
-        </div>
-      </section>
+
 
       {/* Footer */}
       <footer className="bg-dark text-white py-5">
