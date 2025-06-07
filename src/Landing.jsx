@@ -15,10 +15,7 @@ const Landing = () => {
     setLoginData(prev => ({ ...prev, [name]: value }));
   };
 
-  const fadeIn = {
-    hidden: { opacity: 0 },
-    visible: { opacity: 1, transition: { duration: 0.8 } }
-  };
+
 
   const slideUp = {
     hidden: { y: 50, opacity: 0 },
