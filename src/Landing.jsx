@@ -477,7 +477,7 @@ const Landing = () => {
                     key={index}
                     whileHover={{ x: 5 }}
                   >
-                    <a href="#" className="text-white-50">{item}</a>
+                    <a href="/#" className="text-white-50">{item}</a>
                   </motion.li>
                 ))}
               </ul>
@@ -490,7 +490,7 @@ const Landing = () => {
                     key={index}
                     whileHover={{ x: 5 }}
                   >
-                    <a href="#" className="text-white-50">{item}</a>
+                    <a href="/#" className="text-white-50">{item}</a>
                   </motion.li>
                 ))}
               </ul>
@@ -503,7 +503,7 @@ const Landing = () => {
                     key={index}
                     whileHover={{ x: 5 }}
                   >
-                    <a href="#" className="text-white-50">{item}</a>
+                    <a href="/#" className="text-white-50">{item}</a>
                   </motion.li>
                 ))}
               </ul>
@@ -516,7 +516,7 @@ const Landing = () => {
                     key={index}
                     whileHover={{ x: 5 }}
                   >
-                    <a href="#" className="text-white-50">{item}</a>
+                    <a href="/#" className="text-white-50">{item}</a>
                   </motion.li>
                 ))}
               </ul>
