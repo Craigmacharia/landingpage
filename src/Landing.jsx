@@ -4,7 +4,7 @@ import './styles.css';
 import { motion } from 'framer-motion';
 import { 
   FiEdit, FiClock, FiCheckCircle, FiBarChart2, 
-  FiLock, FiUsers, FiChevronDown, FiX
+  FiLock, FiUsers, FiChevronDown,
 } from 'react-icons/fi';
 
 const Landing = () => {
@@ -294,7 +294,7 @@ const Landing = () => {
                   <h4 className="h5 mb-3">Product</h4>
                   <ul className="list-unstyled">
                     {['Features', 'Pricing', 'Integrations', 'Updates'].map((item, index) => (
-                      <li key={index}><a href="#" className="text-white-50">{item}</a></li>
+                      <li key={index}><a href="/#" className="text-white-50">{item}</a></li>
                     ))}
                   </ul>
                 </div>
@@ -302,7 +302,7 @@ const Landing = () => {
                   <h4 className="h5 mb-3">Company</h4>
                   <ul className="list-unstyled">
                     {['About', 'Careers', 'Blog'].map((item, index) => (
-                      <li key={index}><a href="#" className="text-white-50">{item}</a></li>
+                      <li key={index}><a href="/#" className="text-white-50">{item}</a></li>
                     ))}
                   </ul>
                 </div>
@@ -325,7 +325,7 @@ const Landing = () => {
             <div className="col-md-6 text-md-end">
               <div className="d-flex gap-3 justify-content-md-end">
                 {['Privacy Policy', 'Terms of Service'].map((item, index) => (
-                  <a key={index} href="#" className="text-white-50 small">{item}</a>
+                  <a key={index} href="/#" className="text-white-50 small">{item}</a>
                 ))}
               </div>
             </div>
