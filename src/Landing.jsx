@@ -55,8 +55,8 @@ const Landing = () => {
   ];
 
   const companies = [
-    'Google', 'Amazon', 'Apple', 'Intel', 
-    'IBM', 'Microsoft', 'Samsung'
+    'Watamu', 'Mazuri', 'Kuruzui', 'Ladha', 
+    'Outro', 'Tech.ke', 'Variant'
   ];
 
   return (
@@ -122,9 +122,9 @@ const Landing = () => {
                   </motion.div>
                 )}
                 
-                <a href="#demo" className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">Live Demo</a>
-              </motion.div>
-            </div>
+                </motion.div>
+                </div>
+                
             <div className="col-lg-6 d-none d-lg-block">
               <motion.img 
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -268,22 +268,7 @@ const Landing = () => {
             transition={{ delay: 0.4 }}
             className="d-flex justify-content-center gap-3"
           >
-            <motion.a 
-              href="#pricing" 
-              className="btn btn-light btn-lg px-4 py-2 rounded-pill fw-bold"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              View Plans
-            </motion.a>
-            <motion.a 
-              href="#contact" 
-              className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              Contact Sales
-            </motion.a>
+            
           </motion.div>
         </div>
       </section>
