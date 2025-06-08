@@ -282,7 +282,7 @@ const Landing = () => {
               <p>Transforming board governance through intelligent technology solutions.</p>
               <div className="d-flex gap-3 mt-3">
                 {['twitter', 'linkedin', 'facebook'].map((social, index) => (
-                  <a key={index} href="#" className="text-white">
+                  <a key={index} href="/#" className="text-white">
                     <i className={`bi bi-${social}`} style={{ fontSize: '1.5rem' }}></i>
                   </a>
                 ))}
@@ -310,7 +310,7 @@ const Landing = () => {
                   <h4 className="h5 mb-3">Legal</h4>
                   <ul className="list-unstyled">
                     {['Privacy', 'Terms', 'Security'].map((item, index) => (
-                      <li key={index}><a href="#" className="text-white-50">{item}</a></li>
+                      <li key={index}><a href="/#" className="text-white-50">{item}</a></li>
                     ))}
                   </ul>
                 </div>
