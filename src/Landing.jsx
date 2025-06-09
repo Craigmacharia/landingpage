@@ -172,7 +172,7 @@ const Landing = () => {
                 Boardify
               </motion.h1>
               <motion.p initial="hidden" animate="visible" variants={slideUp} transition={{ delay: 0.2 }} className="lead fs-5 mb-4">
-                Transform your board meetings with intelligent agenda management, real-time collaboration, and actionable insights.
+              Boardify elevates your organization's governance with our comprehensive Board Management Solution, designed to streamline Board Governance, Meetings, and Strategic Planning. Ensure compliance with company regulations while facilitating effective Board Evaluations and Elections. Invest in a tool that empowers your board to operate efficiently and strategically, driving your organization towards success
               </motion.p>
               <motion.div initial="hidden" animate="visible" variants={slideUp} transition={{ delay: 0.4 }} className="d-flex gap-3">
                 <button 
