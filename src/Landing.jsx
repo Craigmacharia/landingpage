@@ -148,12 +148,12 @@ const Landing = () => {
         
         <div className="container py-5">
           <div className="row align-items-center">
-            <div className="col-lg-6 order-lg-1 order-1 mb-4 mb-lg-0">
-              <motion.h1 initial="hidden" animate="visible" variants={slideUp} className="display-4 fw-bold mb-4">
+            <div className="col-lg-6 order-lg-1 order-1 mb-1 mb-lg-0">
+              <motion.h1 initial="hidden" animate="visible" variants={slideUp} className="display-4 fw-bold mb-2">
                 Boardify
               </motion.h1>
-              <motion.p initial="hidden" animate="visible" variants={slideUp} transition={{ delay: 0.2 }} className="lead fs-5 mb-4">
-              Boardify elevates your organization's governance with our comprehensive Board Management Solution, designed to streamline Board Governance, Meetings, and Strategic Planning. Ensure compliance with company regulations while facilitating effective Board Evaluations and Elections. Invest in a tool that empowers your board to operate efficiently and strategically, driving your organization towards success
+              <motion.p initial="hidden" animate="visible" variants={slideUp} transition={{ delay: 0.2 }} className="lead fs-5 mb-2">
+              Boardify: Streamline governance, meetings, strategic planning, compliance, evaluations, and elections for success.
               </motion.p>
               <motion.div initial="hidden" animate="visible" variants={slideUp} transition={{ delay: 0.4 }} className="d-flex gap-3">
                 <button 
