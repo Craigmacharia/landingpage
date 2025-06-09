@@ -39,15 +39,15 @@ const Landing = () => {
 
   const testimonials = [
     {
-      name: "Sarah Johnson",
-      role: "CEO, Acme Corporation",
+      name: "Mwikali Jemimmah",
+      role: "CEO, Rauka Corporation",
       content: "Since implementing Boardify, our board meetings are 40% shorter yet more productive. The action tracking system ensures nothing falls through the cracks.",
       extra: "We've seen a 30% increase in director engagement since switching to Boardify.",
       rating: 5
     },
     {
-      name: "Michael Chen",
-      role: "Board Chair, TechCorp",
+      name: "Michael Hassan",
+      role: "Board Chair, TechCorp.ke",
       content: "Boardify has revolutionized our governance processes. The analytics dashboard gives us unprecedented visibility into our decision-making patterns.",
       extra: "Preparation time for meetings has been cut by half.",
       rating: 5
