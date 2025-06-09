@@ -167,7 +167,7 @@ const Landing = () => {
         
         <div className="container py-5">
           <div className="row align-items-center">
-            <div className="col-lg-6 order-lg-1 order-2">
+            <div className="col-lg-6 order-lg-1 order-1 mb-4 mb-lg-0">
               <motion.h1 initial="hidden" animate="visible" variants={slideUp} className="display-4 fw-bold mb-4">
                 Boardify
               </motion.h1>
@@ -187,7 +187,7 @@ const Landing = () => {
               </motion.div>
             </div>
             
-            <div className="col-lg-6 order-lg-2 order-1 mb-4 mb-lg-0">
+            <div className="col-lg-6 order-lg-2 order-2">
               <motion.img 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
@@ -198,6 +198,17 @@ const Landing = () => {
               />
             </div>
           </div>
+        </div>
+
+        {/* Additional decorative curve at the bottom for mobile */}
+        <div className="hero-mobile-bottom-curve d-lg-none">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 120">
+            <path 
+              fill="#ffffff" 
+              fillOpacity="1" 
+              d="M0,64L48,80C96,96,192,128,288,128C384,128,480,96,576,96C672,96,768,128,864,138.7C960,149,1056,139,1152,122.7C1248,107,1344,85,1392,74.7L1440,64L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
         </div>
       </section>
 
@@ -322,24 +333,7 @@ const Landing = () => {
           <motion.p initial="hidden" whileInView="visible" variants={slideUp} viewport={{ once: true }} transition={{ delay: 0.2 }} className="lead mb-4">
             Join hundreds of organizations that trust Boardify for their governance needs.
           </motion.p>
-          <motion.div 
-            initial="hidden"
-            whileInView="visible"
-            variants={slideUp}
-            viewport={{ once: true }}
-            transition={{ delay: 0.4 }}
-            className="d-flex justify-content-center gap-3"
-          >
-            <button 
-              className="btn btn-light btn-lg px-4 py-2 rounded-pill fw-bold"
-              onClick={() => setShowLoginForm(true)}
-            >
-              Get Started
-            </button>
-            <button className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">
-              Request Demo
-            </button>
-          </motion.div>
+    
         </div>
       </section>
 
