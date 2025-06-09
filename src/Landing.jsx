@@ -4,7 +4,7 @@ import './styles.css';
 import { motion } from 'framer-motion';
 import { 
   FiEdit, FiClock, FiCheckCircle, FiBarChart2, 
-  FiLock, FiUsers, FiChevronDown,
+  FiLock, FiUsers, FiChevronDown, FiX
 } from 'react-icons/fi';
 
 const Landing = () => {
@@ -55,84 +55,146 @@ const Landing = () => {
   ];
 
   const companies = [
-    'Watamu', 'Mazuri', 'Kuruzui', 'Ladha', 
-    'Outro', 'Tech.ke', 'Variant'
+    'QUICKLINK SKY', 'MPESA', 'FAMILY BANK', 'PAYPAL', 
+    'MUST SACCO', 'CREDIT BANK', 'EQUITY BANK'
   ];
 
   return (
     <div className="landing-page">
+      {/* Curved Decorative Element */}
+      <div className="top-curve">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path 
+            fill="#0d6efd" 
+            fillOpacity="1" 
+            d="M0,192L48,197.3C96,203,192,213,288,229.3C384,245,480,267,576,250.7C672,235,768,181,864,181.3C960,181,1056,235,1152,234.7C1248,235,1344,181,1392,154.7L1440,128L1440,0L1392,0C1344,0,1248,0,1152,0C1056,0,960,0,864,0C768,0,672,0,576,0C480,0,384,0,288,0C192,0,96,0,48,0L0,0Z"
+          ></path>
+        </svg>
+      </div>
+
+      {/* Expanded Login Modal */}
+      {showLoginForm && (
+        <motion.div 
+          className="login-modal"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
+        >
+          <motion.div 
+            className="login-modal-content"
+            initial={{ scale: 0.9 }}
+            animate={{ scale: 1 }}
+          >
+            <button 
+              className="close-btn" 
+              onClick={() => setShowLoginForm(false)}
+            >
+              <FiX size={24} />
+            </button>
+            
+            <div className="row">
+              <div className="col-lg-6 d-none d-lg-flex login-left">
+                <div className="login-hero">
+                  <h2>Welcome Back</h2>
+                  <p>Sign in to access your Boardify dashboard and manage your board meetings.</p>
+                  <img src="boardify.jpg" alt="Boardify Dashboard" className="img-fluid rounded" />
+                </div>
+              </div>
+              
+              <div className="col-lg-6 login-right">
+                <div className="login-form">
+                  <h3>Sign In</h3>
+                  <p className="text-muted mb-4">Enter your details to access your account</p>
+                  
+                  <form>
+                    <div className="mb-3">
+                      <label htmlFor="email" className="form-label">Email</label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="your@email.com"
+                        className="form-control"
+                        value={loginData.email}
+                        onChange={handleLoginChange}
+                      />
+                    </div>
+                    <div className="mb-3">
+                      <label htmlFor="password" className="form-label">Password</label>
+                      <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="••••••••"
+                        className="form-control"
+                        value={loginData.password}
+                        onChange={handleLoginChange}
+                      />
+                    </div>
+                    <div className="d-flex justify-content-between mb-4">
+                      <div className="form-check">
+                        <input type="checkbox" className="form-check-input" id="remember" />
+                        <label className="form-check-label" htmlFor="remember">Remember me</label>
+                      </div>
+                      <a href="#forgot" className="text-primary">Forgot password?</a>
+                    </div>
+                    <button type="submit" className="btn btn-primary w-100 py-2 mb-3">
+                      Sign In
+                    </button>
+                    <div className="text-center">
+                      <p className="text-muted">Don't have an account? <a href="#signup" className="text-primary">Sign up</a></p>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+        </motion.div>
+      )}
+
       {/* Hero Section */}
-      <section className="hero-section text-white">
+      <section className="hero-section text-white position-relative">
+        {/* New decorative curve at the bottom of the hero section */}
+        <div className="hero-bottom-curve">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 150">
+            <path 
+              fill="#ffffff" 
+              fillOpacity="1" 
+              d="M0,96L48,90.7C96,85,192,75,288,69.3C384,64,480,64,576,80C672,96,768,128,864,128C960,128,1056,96,1152,90.7C1248,85,1344,107,1392,117.3L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+            ></path>
+          </svg>
+        </div>
+        
         <div className="container py-5">
           <div className="row align-items-center">
-            <div className="col-lg-6">
+            <div className="col-lg-6 order-lg-1 order-2">
               <motion.h1 initial="hidden" animate="visible" variants={slideUp} className="display-4 fw-bold mb-4">
                 Boardify
               </motion.h1>
               <motion.p initial="hidden" animate="visible" variants={slideUp} transition={{ delay: 0.2 }} className="lead fs-5 mb-4">
                 Transform your board meetings with intelligent agenda management, real-time collaboration, and actionable insights.
               </motion.p>
-              <motion.div initial="hidden" animate="visible" variants={slideUp} transition={{ delay: 0.4 }} className="d-flex gap-3 position-relative">
+              <motion.div initial="hidden" animate="visible" variants={slideUp} transition={{ delay: 0.4 }} className="d-flex gap-3">
                 <button 
                   className="btn btn-light btn-lg px-4 py-2 rounded-pill fw-bold d-flex align-items-center"
-                  onClick={() => setShowLoginForm(!showLoginForm)}
+                  onClick={() => setShowLoginForm(true)}
                 >
                   Get Started <FiChevronDown className="ms-2" />
                 </button>
-                
-                {showLoginForm && (
-                  <motion.div 
-                    initial={{ opacity: 0, y: 10 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    className="login-form-container p-4 bg-white rounded shadow-lg"
-                  >
-                    <button 
-                      className="btn-close position-absolute top-0 end-0 m-2" 
-                      onClick={() => setShowLoginForm(false)}
-                    />
-                    <h5 className="mb-3 text-dark">Sign In</h5>
-                    <form>
-                      <div className="mb-3">
-                        <input
-                          type="email"
-                          name="email"
-                          placeholder="Email"
-                          className="form-control"
-                          value={loginData.email}
-                          onChange={handleLoginChange}
-                        />
-                      </div>
-                      <div className="mb-3">
-                        <input
-                          type="password"
-                          name="password"
-                          placeholder="Password"
-                          className="form-control"
-                          value={loginData.password}
-                          onChange={handleLoginChange}
-                        />
-                      </div>
-                      <button type="submit" className="btn btn-primary w-100">
-                        Login
-                      </button>
-                      <div className="text-center mt-2">
-                        <a href="#forgot" className="small text-muted">Forgot password?</a>
-                      </div>
-                    </form>
-                  </motion.div>
-                )}
-                
-                </motion.div>
-                </div>
-                
-            <div className="col-lg-6 d-none d-lg-block">
+                <button className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">
+                  Learn More
+                </button>
+              </motion.div>
+            </div>
+            
+            <div className="col-lg-6 order-lg-2 order-1 mb-4 mb-lg-0">
               <motion.img 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
-                src="https://bing.com/th/id/BCO.1364d8f8-cdf2-46ea-936b-f3dcb8f3bd4c.png" 
+                src="boardify.jpg" 
                 alt="Boardify Dashboard" 
-                className="img-fluid rounded shadow-lg" 
+                className="img-fluid rounded shadow-lg hero-image" 
               />
             </div>
           </div>
@@ -268,7 +330,15 @@ const Landing = () => {
             transition={{ delay: 0.4 }}
             className="d-flex justify-content-center gap-3"
           >
-            
+            <button 
+              className="btn btn-light btn-lg px-4 py-2 rounded-pill fw-bold"
+              onClick={() => setShowLoginForm(true)}
+            >
+              Get Started
+            </button>
+            <button className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">
+              Request Demo
+            </button>
           </motion.div>
         </div>
       </section>
