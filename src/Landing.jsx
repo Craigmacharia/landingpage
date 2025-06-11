@@ -59,6 +59,9 @@ const Landing = () => {
     'MUST SACCO', 'CREDIT BANK', 'EQUITY BANK'
   ];
 
+  // Duplicate the companies array to create infinite loop effect
+  const duplicatedCompanies = [...companies, ...companies];
+
   return (
     <div className="landing-page">
       {/* Header Section */}
@@ -208,7 +211,7 @@ const Landing = () => {
         </div>
       </section>
 
-      {/* Trusted By Section */}
+      {/* Trusted By Section with Slideshow */}
       <section className="py-5 bg-light">
         <div className="container">
           <motion.p 
@@ -220,22 +223,23 @@ const Landing = () => {
           >
             TRUSTED BY LEADING ORGANIZATIONS
           </motion.p>
-          <div className="overflow-hidden">
+          <div className="logo-carousel-wrapper">
             <motion.div 
-              className="d-flex flex-wrap justify-content-center align-items-center gap-4 gap-md-5 py-3"
+              className="logo-carousel"
               initial="hidden"
               whileInView="visible"
               variants={fadeIn}
               viewport={{ once: true }}
             >
-              {companies.map((company, index) => (
+              {duplicatedCompanies.map((company, index) => (
                 <motion.div 
                   key={index} 
-                  className="text-muted fw-bold"
+                  className="logo-slide"
                   whileHover={{ scale: 1.05 }}
-                  style={{ fontSize: '0.9rem' }}
                 >
-                  {company}
+                  <div className="company-logo">
+                    {company}
+                  </div>
                 </motion.div>
               ))}
             </motion.div>
