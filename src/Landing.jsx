@@ -61,39 +61,48 @@ const Landing = () => {
 
   return (
     <div className="landing-page">
+      {/* Header Section */}
 
-      {/* Expanded Login Modal */}
+
+      {/* Login Modal */}
       {showLoginForm && (
         <motion.div 
-          className="login-modal"
+          className="login-modal d-flex align-items-center justify-content-center"
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
         >
           <motion.div 
-            className="login-modal-content"
+            className="login-modal-content bg-white rounded-3 overflow-hidden shadow-lg"
             initial={{ scale: 0.9 }}
             animate={{ scale: 1 }}
+            style={{ maxWidth: '900px', width: '95%' }}
           >
             <button 
-              className="close-btn" 
+              className="close-btn position-absolute bg-transparent border-0" 
               onClick={() => setShowLoginForm(false)}
+              style={{ top: '1rem', right: '1rem', zIndex: 10 }}
             >
               <FiX size={24} />
             </button>
             
-            <div className="row">
-              <div className="col-lg-6 d-none d-lg-flex login-left">
-                <div className="login-hero">
-                  <h2>Welcome Back</h2>
-                  <p>Sign in to access your Boardify dashboard and manage your board meetings.</p>
-                  <img src="boardify.jpg" alt="Boardify Dashboard" className="img-fluid rounded" />
+            <div className="row g-0">
+              <div className="col-lg-6 d-none d-lg-flex login-left bg-light p-5">
+                <div className="login-hero d-flex flex-column justify-content-center h-100">
+                  <h2 className="fw-bold mb-3">Welcome Back</h2>
+                  <p className="mb-4">Sign in to access your Boardify dashboard and manage your board meetings.</p>
+                  <img 
+                    src="boardify.jpg" 
+                    alt="Boardify Dashboard" 
+                    className="img-fluid rounded shadow-sm" 
+                    style={{ maxHeight: '300px', objectFit: 'cover' }}
+                  />
                 </div>
               </div>
               
-              <div className="col-lg-6 login-right">
-                <div className="login-form">
-                  <h3>Sign In</h3>
+              <div className="col-lg-6 login-right p-4 p-md-5">
+                <div className="login-form h-100 d-flex flex-column justify-content-center">
+                  <h3 className="fw-bold mb-1">Sign In</h3>
                   <p className="text-muted mb-4">Enter your details to access your account</p>
                   
                   <form>
@@ -104,7 +113,7 @@ const Landing = () => {
                         id="email"
                         name="email"
                         placeholder="your@email.com"
-                        className="form-control"
+                        className="form-control py-2"
                         value={loginData.email}
                         onChange={handleLoginChange}
                       />
@@ -116,23 +125,23 @@ const Landing = () => {
                         id="password"
                         name="password"
                         placeholder="••••••••"
-                        className="form-control"
+                        className="form-control py-2"
                         value={loginData.password}
                         onChange={handleLoginChange}
                       />
                     </div>
-                    <div className="d-flex justify-content-between mb-4">
+                    <div className="d-flex justify-content-between align-items-center mb-4">
                       <div className="form-check">
                         <input type="checkbox" className="form-check-input" id="remember" />
-                        <label className="form-check-label" htmlFor="remember">Remember me</label>
+                        <label className="form-check-label small" htmlFor="remember">Remember me</label>
                       </div>
-                      <a href="#forgot" className="text-primary">Forgot password?</a>
+                      <a href="#forgot" className="text-primary small">Forgot password?</a>
                     </div>
-                    <button type="submit" className="btn btn-primary w-100 py-2 mb-3">
+                    <button type="submit" className="btn btn-primary w-100 py-2 mb-3 fw-bold">
                       Sign In
                     </button>
                     <div className="text-center">
-                      <p className="text-muted">Don't have an account? <a href="#signup" className="text-primary">Sign up</a></p>
+                      <p className="text-muted small">Don't have an account? <a href="#signup" className="text-primary">Sign up</a></p>
                     </div>
                   </form>
                 </div>
@@ -143,59 +152,77 @@ const Landing = () => {
       )}
 
       {/* Hero Section */}
-      <section className="hero-section text-white position-relative">
-
-        
-        <div className="container py-5">
+      <section className="hero-section py-5 py-lg-6">
+        <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-6 order-lg-1 order-1 mb-1 mb-lg-0">
-              <motion.h1 initial="hidden" animate="visible" variants={slideUp} className="display-4 fw-bold mb-2">
-                Boardify
-              </motion.h1>
-              <motion.p initial="hidden" animate="visible" variants={slideUp} transition={{ delay: 0.2 }} className="lead fs-5 mb-2">
-              Boardify: Streamline governance, meetings, strategic planning, compliance, evaluations, and elections for success.
-              </motion.p>
-              <motion.div initial="hidden" animate="visible" variants={slideUp} transition={{ delay: 0.4 }} className="d-flex gap-3">
-                <button 
-                  className="btn btn-light btn-lg px-4 py-2 rounded-pill fw-bold d-flex align-items-center"
-                  onClick={() => setShowLoginForm(true)}
+            <div className="col-lg-6 order-lg-1 order-2 mb-5 mb-lg-0">
+              <div className="hero-content pe-lg-4">
+                <motion.h1 
+                  initial="hidden" 
+                  animate="visible" 
+                  variants={slideUp} 
+                  className="display-4 fw-bold mb-4"
                 >
-                  Get Started <FiChevronDown className="ms-2" />
-                </button>
-                <button className="btn btn-outline-light btn-lg px-4 py-2 rounded-pill">
-                  Learn More
-                </button>
-              </motion.div>
+                  Transform Your Board Meetings with Boardify
+                </motion.h1>
+                <motion.p 
+                  initial="hidden" 
+                  animate="visible" 
+                  variants={slideUp} 
+                  transition={{ delay: 0.2 }} 
+                  className="lead mb-4 text-muted"
+                >
+                  Boardify elevates your organization's governance with our comprehensive Board Management Solution, designed to streamline Board Governance, Meetings, and Strategic Planning.
+                </motion.p>
+                <motion.div 
+                  initial="hidden" 
+                  animate="visible" 
+                  variants={slideUp} 
+                  transition={{ delay: 0.4 }} 
+                  className="d-flex flex-wrap gap-3"
+                >
+                  <button 
+                    className="btn btn-primary btn-lg px-4 py-3 rounded-pill fw-bold d-flex align-items-center"
+                    onClick={() => setShowLoginForm(true)}
+                  >
+                    Get Started <FiChevronDown className="ms-2" />
+                  </button>
+                  <button className="btn btn-outline-primary btn-lg px-4 py-3 rounded-pill">
+                    Learn More
+                  </button>
+                </motion.div>
+              </div>
             </div>
             
-            <div className="col-lg-6 order-lg-2 order-2">
+            <div className="col-lg-6 order-lg-2 order-1">
               <motion.img 
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: 0.6, duration: 0.8 }}
                 src="boardify.jpg" 
                 alt="Boardify Dashboard" 
-                className="img-fluid rounded shadow-lg hero-image" 
+                className="img-fluid rounded-3 shadow-lg" 
               />
             </div>
           </div>
         </div>
-
-        {/* Additional decorative curve at the bottom for mobile */}
-        <div className="hero-mobile-bottom-curve d-lg-none">
-          </div>
-
       </section>
 
       {/* Trusted By Section */}
       <section className="py-5 bg-light">
-        <div className="container text-center">
-          <motion.p initial="hidden" whileInView="visible" variants={fadeIn} viewport={{ once: true }} className="text-muted mb-4">
+        <div className="container">
+          <motion.p 
+            initial="hidden" 
+            whileInView="visible" 
+            variants={fadeIn} 
+            viewport={{ once: true }} 
+            className="text-uppercase text-center text-muted mb-4 small fw-bold"
+          >
             TRUSTED BY LEADING ORGANIZATIONS
           </motion.p>
-          <div className="logo-carousel-wrapper">
+          <div className="overflow-hidden">
             <motion.div 
-              className="logo-carousel"
+              className="d-flex flex-wrap justify-content-center align-items-center gap-4 gap-md-5 py-3"
               initial="hidden"
               whileInView="visible"
               variants={fadeIn}
@@ -204,12 +231,11 @@ const Landing = () => {
               {companies.map((company, index) => (
                 <motion.div 
                   key={index} 
-                  className="logo-slide"
+                  className="text-muted fw-bold"
                   whileHover={{ scale: 1.05 }}
+                  style={{ fontSize: '0.9rem' }}
                 >
-                  <div className="company-logo">
-                    {company}
-                  </div>
+                  {company}
                 </motion.div>
               ))}
             </motion.div>
@@ -218,11 +244,19 @@ const Landing = () => {
       </section>
 
       {/* Features Section */}
-      <section id="features" className="py-5">
+      <section id="features" className="py-5 py-lg-6">
         <div className="container">
-          <motion.div initial="hidden" whileInView="visible" variants={slideUp} viewport={{ once: true }} className="text-center mb-5">
+          <motion.div 
+            initial="hidden" 
+            whileInView="visible" 
+            variants={slideUp} 
+            viewport={{ once: true }} 
+            className="text-center mb-5"
+          >
             <h2 className="display-5 fw-bold mb-3">Streamline Your Board Operations</h2>
-            <p className="lead text-muted">Everything you need for effective governance in one platform</p>
+            <p className="lead text-muted mx-auto" style={{ maxWidth: '700px' }}>
+              Everything you need for effective governance in one platform
+            </p>
           </motion.div>
 
           <div className="row g-4">
@@ -237,12 +271,14 @@ const Landing = () => {
                 transition={{ delay: index * 0.1 }}
               >
                 <motion.div 
-                  className="feature-card p-4 h-100 rounded shadow-sm"
+                  className="feature-card p-4 h-100 rounded-3 shadow-sm bg-white d-flex flex-column"
                   whileHover={{ y: -5, boxShadow: "0 10px 20px rgba(0,0,0,0.1)" }}
                 >
-                  <div className="feature-icon mb-3">{feature.icon}</div>
-                  <h3 className="h5 fw-bold">{feature.title}</h3>
-                  <p className="text-muted">{feature.description}</p>
+                  <div className="feature-icon mb-3 text-primary" style={{ fontSize: '2rem' }}>
+                    {feature.icon}
+                  </div>
+                  <h3 className="h5 fw-bold mb-3">{feature.title}</h3>
+                  <p className="text-muted mb-0 flex-grow-1">{feature.description}</p>
                 </motion.div>
               </motion.div>
             ))}
@@ -251,120 +287,153 @@ const Landing = () => {
       </section>
 
       {/* Testimonial Section */}
-      <section className="py-5 bg-light">
+      <section className="py-5 py-lg-6 bg-light">
         <div className="container">
           <div className="row align-items-center">
-            <div className="col-lg-5 mb-4 mb-lg-0">
-              <motion.h2 initial="hidden" whileInView="visible" variants={slideUp} viewport={{ once: true }} className="display-5 fw-bold mb-4">
+            <div className="col-lg-5 mb-5 mb-lg-0 pe-lg-5">
+              <motion.h2 
+                initial="hidden" 
+                whileInView="visible" 
+                variants={slideUp} 
+                viewport={{ once: true }} 
+                className="display-5 fw-bold mb-4"
+              >
                 What Our Clients Say
               </motion.h2>
-              <motion.p initial="hidden" whileInView="visible" variants={slideUp} viewport={{ once: true }} transition={{ delay: 0.2 }} className="lead">
+              <motion.p 
+                initial="hidden" 
+                whileInView="visible" 
+                variants={slideUp} 
+                viewport={{ once: true }} 
+                transition={{ delay: 0.2 }} 
+                className="lead mb-4"
+              >
                 Boardify has transformed how we run our board meetings, saving us hours of preparation time.
               </motion.p>
               <div className="d-flex gap-2 mt-4">
                 {testimonials.map((_, index) => (
                   <button
                     key={index}
-                    className={`btn btn-sm ${activeTestimonial === index ? 'btn-primary' : 'btn-outline-primary'}`}
+                    className={`btn btn-sm rounded-pill ${activeTestimonial === index ? 'btn-primary' : 'btn-outline-primary'}`}
                     onClick={() => setActiveTestimonial(index)}
+                    style={{ width: '24px', height: '8px', padding: 0 }}
                   />
                 ))}
               </div>
             </div>
             <div className="col-lg-7">
               <motion.div 
-                className="card shadow-sm p-4"
+                className="card border-0 shadow-sm p-4 p-lg-5 bg-white rounded-3"
                 key={activeTestimonial}
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ duration: 0.5 }}
               >
-                <div className="d-flex align-items-center mb-3">
-                  <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" style={{ width: '60px', height: '60px', fontSize: '1.5rem' }}>
+                <div className="d-flex align-items-center mb-4">
+                  <div className="rounded-circle bg-primary text-white d-flex align-items-center justify-content-center me-3" 
+                    style={{ width: '60px', height: '60px', fontSize: '1.5rem' }}>
                     {testimonials[activeTestimonial].name.charAt(0)}
                   </div>
                   <div>
-                    <h5 className="mb-1">{testimonials[activeTestimonial].name}</h5>
+                    <h5 className="mb-1 fw-bold">{testimonials[activeTestimonial].name}</h5>
                     <p className="text-muted small mb-0">{testimonials[activeTestimonial].role}</p>
                   </div>
                 </div>
-                <p className="mb-3">"{testimonials[activeTestimonial].content}"</p>
-                <div className="text-warning mb-2">
-                  {'★'.repeat(testimonials[activeTestimonial].rating)}
+                <p className="mb-4 fs-5">"{testimonials[activeTestimonial].content}"</p>
+                <div className="text-warning mb-3">
+                  {Array.from({ length: testimonials[activeTestimonial].rating }).map((_, i) => (
+                    <span key={i}>★</span>
+                  ))}
                 </div>
-                <p className="small text-muted mb-0">"{testimonials[activeTestimonial].extra}"</p>
+                <p className="small text-muted mb-0 fst-italic">"{testimonials[activeTestimonial].extra}"</p>
               </motion.div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section id="cta" className="py-5 text-white cta-section">
-        <div className="container text-center py-4">
-          <motion.h2 initial="hidden" whileInView="visible" variants={slideUp} viewport={{ once: true }} className="display-5 fw-bold mb-3">
-            Ready to Transform Your Board Meetings?
-          </motion.h2>
-          <motion.p initial="hidden" whileInView="visible" variants={slideUp} viewport={{ once: true }} transition={{ delay: 0.2 }} className="lead mb-4">
-            Join hundreds of organizations that trust Boardify for their governance needs.
-          </motion.p>
-    
-        </div>
-      </section>
+
 
       {/* Footer */}
       <footer className="bg-dark text-white py-5">
-        <div className="container">
-          <div className="row">
-            <div className="col-lg-4 mb-4 mb-lg-0">
-              <h3 className="h4 mb-3">Boardify</h3>
-              <p>Transforming board governance through intelligent technology solutions.</p>
-              <div className="d-flex gap-3 mt-3">
+        <div className="container py-4">
+          <div className="row g-4">
+            <div className="col-lg-4">
+              <h3 className="h4 fw-bold mb-3">Boardify</h3>
+              <p className="text-white-50 mb-4">
+                Transforming board governance through intelligent technology solutions.
+              </p>
+              <div className="d-flex gap-3">
                 {['twitter', 'linkedin', 'facebook'].map((social, index) => (
-                  <a key={index} href="/#" className="text-white">
-                    <i className={`bi bi-${social}`} style={{ fontSize: '1.5rem' }}></i>
+                  <a 
+                    key={index} 
+                    href="/#" 
+                    className="text-white-50 hover-text-white"
+                    style={{ fontSize: '1.25rem' }}
+                  >
+                    <i className={`bi bi-${social}`}></i>
                   </a>
                 ))}
               </div>
             </div>
             <div className="col-lg-8">
-              <div className="row">
-                <div className="col-md-4 mb-3">
-                  <h4 className="h5 mb-3">Product</h4>
+              <div className="row g-4">
+                <div className="col-md-4">
+                  <h4 className="h5 fw-bold mb-3">Product</h4>
                   <ul className="list-unstyled">
                     {['Features', 'Pricing', 'Integrations', 'Updates'].map((item, index) => (
-                      <li key={index}><a href="/#" className="text-white-50">{item}</a></li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="col-md-4 mb-3">
-                  <h4 className="h5 mb-3">Company</h4>
-                  <ul className="list-unstyled">
-                    {['About', 'Careers', 'Blog'].map((item, index) => (
-                      <li key={index}><a href="/#" className="text-white-50">{item}</a></li>
+                      <li key={index} className="mb-2">
+                        <a href="/#" className="text-white-50 hover-text-white text-decoration-none">
+                          {item}
+                        </a>
+                      </li>
                     ))}
                   </ul>
                 </div>
                 <div className="col-md-4">
-                  <h4 className="h5 mb-3">Legal</h4>
+                  <h4 className="h5 fw-bold mb-3">Company</h4>
+                  <ul className="list-unstyled">
+                    {['About', 'Careers', 'Blog'].map((item, index) => (
+                      <li key={index} className="mb-2">
+                        <a href="/#" className="text-white-50 hover-text-white text-decoration-none">
+                          {item}
+                        </a>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="col-md-4">
+                  <h4 className="h5 fw-bold mb-3">Legal</h4>
                   <ul className="list-unstyled">
                     {['Privacy', 'Terms', 'Security'].map((item, index) => (
-                      <li key={index}><a href="/#" className="text-white-50">{item}</a></li>
+                      <li key={index} className="mb-2">
+                        <a href="/#" className="text-white-50 hover-text-white text-decoration-none">
+                          {item}
+                        </a>
+                      </li>
                     ))}
                   </ul>
                 </div>
               </div>
             </div>
           </div>
-          <hr className="my-4" />
+          <hr className="my-4 border-secondary" />
           <div className="row align-items-center">
             <div className="col-md-6 mb-3 mb-md-0">
-              <p className="mb-0 small">© {new Date().getFullYear()} Boardify. All rights reserved.</p>
+              <p className="mb-0 small text-white-50">
+                © {new Date().getFullYear()} Boardify. All rights reserved.
+              </p>
             </div>
-            <div className="col-md-6 text-md-end">
-              <div className="d-flex gap-3 justify-content-md-end">
+            <div className="col-md-6">
+              <div className="d-flex flex-wrap gap-3 justify-content-md-end">
                 {['Privacy Policy', 'Terms of Service'].map((item, index) => (
-                  <a key={index} href="/#" className="text-white-50 small">{item}</a>
+                  <a 
+                    key={index} 
+                    href="/#" 
+                    className="text-white-50 hover-text-white small text-decoration-none"
+                  >
+                    {item}
+                  </a>
                 ))}
               </div>
             </div>
