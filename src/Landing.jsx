@@ -4,8 +4,10 @@ import './styles.css';
 import { motion } from 'framer-motion';
 import { 
   FiEdit, FiClock, FiCheckCircle, FiBarChart2, 
-  FiLock, FiUsers, FiChevronDown, FiX
+  FiLock, FiUsers, FiChevronDown, FiX,
+  FiMessageSquare, FiDollarSign, FiUser
 } from 'react-icons/fi';
+import { Link } from 'react-router-dom';
 
 const Landing = () => {
   const [showLoginForm, setShowLoginForm] = useState(false);
@@ -64,8 +66,49 @@ const Landing = () => {
 
   return (
     <div className="landing-page">
-      {/* Header Section */}
+      {/* Mobile Floating Action Buttons - Only visible on mobile */}
+      <div className="d-block d-lg-none">
+        <div className="mobile-fab-container position-fixed bottom-0 end-0 p-3 d-flex flex-column gap-2" style={{ zIndex: 1000 }}>
+          {/* Get Started Button */}
+          <motion.button
+            className="btn btn-primary rounded-circle p-3 shadow-lg"
+            onClick={() => setShowLoginForm(true)}
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1 }}
+          >
+            <FiUser size={20} />
+          </motion.button>
 
+          {/* Currency Selector Button */}
+          <motion.button
+            className="btn btn-success rounded-circle p-3 shadow-lg"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.1 }}
+          >
+            <Link to="/currency" className="text-white">
+              <FiDollarSign size={20} />
+            </Link>
+          </motion.button>
+
+          {/* Contact Support Button */}
+          <motion.button
+            className="btn btn-info rounded-circle p-3 shadow-lg"
+            whileHover={{ scale: 1.1 }}
+            whileTap={{ scale: 0.95 }}
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 1.2 }}
+          >
+            <FiMessageSquare size={20} />
+          </motion.button>
+        </div>
+      </div>
 
       {/* Login Modal */}
       {showLoginForm && (
@@ -155,63 +198,61 @@ const Landing = () => {
       )}
 
       {/* Hero Section */}
-<section className="hero-section py-5 py-lg-6">
-  <div className="container">
-    <div className="row align-items-center">
-      {/* Content Column - Left side on desktop, top on mobile */}
-      <div className="col-lg-6 mb-5 mb-lg-0">
-        <div className="hero-content pe-lg-4">
-          <motion.h1 
-            initial="hidden" 
-            animate="visible" 
-            variants={slideUp} 
-            className="display-4 fw-bold mb-4"
-          >
-            Transform Your Board Meetings with Boardify
-          </motion.h1>
-          <motion.p 
-            initial="hidden" 
-            animate="visible" 
-            variants={slideUp} 
-            transition={{ delay: 0.2 }} 
-            className="lead mb-4 text-muted"
-          >
-            Boardify elevates your organization's governance with our comprehensive Board Management Solution.
-          </motion.p>
-          <motion.div 
-            initial="hidden" 
-            animate="visible" 
-            variants={slideUp} 
-            transition={{ delay: 0.4 }} 
-            className="d-flex flex-wrap gap-3"
-          >
-            <button 
-              className="btn btn-primary btn-lg px-4 py-3 rounded-pill fw-bold d-flex align-items-center"
-              onClick={() => setShowLoginForm(true)}
-            >
-              Get Started <FiChevronDown className="ms-2" />
-            </button>
-            <button className="btn btn-outline-primary btn-lg px-4 py-3 rounded-pill">
-              Learn More
-            </button>
-          </motion.div>
+      <section className="hero-section py-5 py-lg-6">
+        <div className="container">
+          <div className="row align-items-center">
+            <div className="col-lg-6 mb-5 mb-lg-0">
+              <div className="hero-content pe-lg-4">
+                <motion.h1 
+                  initial="hidden" 
+                  animate="visible" 
+                  variants={slideUp} 
+                  className="display-4 fw-bold mb-4"
+                >
+                  Transform Your Board Meetings with Boardify
+                </motion.h1>
+                <motion.p 
+                  initial="hidden" 
+                  animate="visible" 
+                  variants={slideUp} 
+                  transition={{ delay: 0.2 }} 
+                  className="lead mb-4 text-muted"
+                >
+                  Boardify elevates your organization's governance with our comprehensive Board Management Solution.
+                </motion.p>
+                <motion.div 
+                  initial="hidden" 
+                  animate="visible" 
+                  variants={slideUp} 
+                  transition={{ delay: 0.4 }} 
+                  className="d-flex flex-wrap gap-3"
+                >
+                  <button 
+                    className="btn btn-primary btn-lg px-4 py-3 rounded-pill fw-bold d-flex align-items-center"
+                    onClick={() => setShowLoginForm(true)}
+                  >
+                    Get Started <FiChevronDown className="ms-2" />
+                  </button>
+                  <Link to="/currency" className="btn btn-outline-primary btn-lg px-4 py-3 rounded-pill">
+                    Select Currency
+                  </Link>
+                </motion.div>
+              </div>
+            </div>
+            
+            <div className="col-lg-6">
+              <motion.img 
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ delay: 0.6, duration: 0.8 }}
+                src="boardify.jpg" 
+                alt="Boardify Dashboard" 
+                className="img-fluid rounded-3 shadow-lg" 
+              />
+            </div>
+          </div>
         </div>
-      </div>
-      
-      {/* Image Column - Right side on desktop, bottom on mobile */}
-      <div className="col-lg-6">
-        <motion.img 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.6, duration: 0.8 }}
-          src="boardify.jpg" 
-          alt="Boardify Dashboard" 
-          className="img-fluid rounded-3 shadow-lg" 
-        />
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
       {/* Trusted By Section with Slideshow */}
       <section className="py-5 bg-light">
@@ -357,8 +398,6 @@ const Landing = () => {
           </div>
         </div>
       </section>
-
-
 
       {/* Footer */}
       <footer className="bg-dark text-white py-5">
